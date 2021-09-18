@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple interest calculator</title>
+        <h1 style="color: black; text-align: center">Simple interest calculator</h1>
+        <meta charset="UTF-8">
+    </head>
+    <body style="background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)">
+        <div class="main_div">
+            Principal
+            <input type="number" id="principal" min="1" placeholder="Enter the principal"><br><br>
+            Rate
+            <input type="range" id="rate" min=1 max=20 value=10.25  onchange="updateRate()"><br>
+        <p id="demo">Rate value</p>
+            
+            
+            
+           Time in years 
+            <select id="years">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select><br><br>
+                 
+        </div>
+    </body><br><br>
+   
+    <button onclick ="myFunction()">Compute interest</button><br><br>
+ 
+   
+ <span id="result" style="color: lime; background-color: black; font-weight: bold">
+</span>  
+    <footer>&#169; Everyone can get rich 😎</footer>
+    <style>
+    .main_div{
+    margin: auto;
+    background-color: rgba(345, 46, 89, 0.5);
+    border: 2px solid black;
+    box-shadow: 10px 10px;
+    color: black;
+    width: 300px;
+    padding: 20px;
+    border-radius: 25px;
+    }
+
+    </style>
+    <script>
+
+function updateRate()
+{
+	var rateval = document.getElementById("rate").value;
+    document.getElementById("demo").innerHTML = rateval;
+  
+  }
+  function myFunction(){
+  
+var principal = document.getElementById("principal");
+
+if(principal.value <= "0"){
+alert("Enter a positive number except 0");
+principal.focus();
+return false;
+}
+
+var rate = document.getElementById("rate").value;
+
+var years = document.getElementById("years").value;
+
+var interest = principal.value * rate * years /100;
+
+
+var year = new Date().getFullYear()+parseInt(years);
+
+document.getElementById("result").innerHTML="If you deposit "+"<mark>"+principal.value+"</mark>"+",\<br\>at an interest rate of "+"<mark>"+rate+"</mark>"+"<mark>%</mark>,\<br\>You will receive a simple interest of "+"<mark>"+interest+"</mark>"+",\<br\>in the year "+"<mark>"+year+"</mark>"+".\<br\>"
+      }
+	</script>
+     </html>
